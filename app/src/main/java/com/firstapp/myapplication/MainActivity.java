@@ -2,10 +2,20 @@ package com.firstapp.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.Toast;
 //import openai;
 
@@ -46,6 +56,75 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
 
+        //show modes
+        Button showMenuButton = findViewById(R.id.mode);
+        showMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Find your CardView by its ID
+                CardView cardView = findViewById(R.id.myCardView);
+
+// Set its visibility to VISIBLE
+                cardView.setVisibility(View.VISIBLE);
+
+// Create a slide-up animation
+                TranslateAnimation slideUpAnimation = new TranslateAnimation(
+                        Animation.RELATIVE_TO_SELF, 0.0f,
+                        Animation.RELATIVE_TO_SELF, 0.0f,
+                        Animation.RELATIVE_TO_SELF, 1.0f,
+                        Animation.RELATIVE_TO_SELF, 0.0f
+                );
+
+// Set the animation duration (in milliseconds)
+                slideUpAnimation.setDuration(500); // Adjust the duration as needed
+
+// Apply the animation to the CardView
+                cardView.startAnimation(slideUpAnimation);
+
+            }
+        });
+        //show sizes
+        Spinner spinner = findViewById(R.id.spinner);
+        // Define an array of options
+        String[] options = {"Select Size", "256x256", "512x512", "1024x1024"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Check if the hint item is selected (position 0)
+                if (position == 0) {
+                    // The hint item is selected, handle it here or take no action.
+                    Log.d("Tag","option 0 is selected");
+                } else {
+                    // A regular item is selected, you can perform actions here.
+                    Log.d("Tag", String.format("Option %d is selected", position));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Handle case when nothing is selected (optional).
+            }
+        });
+
+
+
+        // listen to img
+        ImageView imageView3 = findViewById(R.id.cardimageView3);
+
+        imageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Tag", "img is pressed");
+                CardView cardView = findViewById(R.id.myCardView);
+                cardView.setVisibility(View.GONE);
+                Toast.makeText(MainActivity.this, "Blah blah", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         binding.btnGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +133,29 @@ public class MainActivity extends AppCompatActivity {
                 callAPI(text);
             }
         });
+       /* // Declare your ScrollView and CardView
+        ScrollView scrollView = findViewById(R.id.scrollView);
+        CardView cardView = findViewById(R.id.myCardView);
+
+        // Add a scroll listener to the ScrollView
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    // Get the maximum scroll height of the ScrollView
+                    int maxScroll = scrollView.getChildAt(0).getHeight() - scrollView.getHeight();
+
+                    // Check if the ScrollView is scrolled to the bottom
+                    if (scrollY >= maxScroll) {
+                        // If scrolled to the bottom, set CardView visibility to GONE
+                        cardView.setVisibility(View.GONE);
+                    } else {
+                        // If not scrolled to the bottom, set CardView visibility to VISIBLE
+                        cardView.setVisibility(View.VISIBLE);
+                    }
+                }
+            });
+        }*/
     }
 
     private void callAPI(String text) {
