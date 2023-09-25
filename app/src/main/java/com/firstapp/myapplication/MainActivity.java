@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.Toast;
-//import openai;
 
 import com.bumptech.glide.Glide;
 import com.firstapp.myapplication.databinding.ActivityMainBinding;
@@ -86,9 +85,8 @@ public class MainActivity extends AppCompatActivity {
         //show sizes
         Spinner spinner = findViewById(R.id.spinner);
         // Define an array of options
-        String[] options = {"Select Size", "256x256", "512x512", "1024x1024"};
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
+        String[] options = {"Size", "256x256", "512x512", "1024x1024"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.custom_spinner_item, options);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -133,35 +131,11 @@ public class MainActivity extends AppCompatActivity {
                 callAPI(text);
             }
         });
-       /* // Declare your ScrollView and CardView
-        ScrollView scrollView = findViewById(R.id.scrollView);
-        CardView cardView = findViewById(R.id.myCardView);
-
-        // Add a scroll listener to the ScrollView
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-                @Override
-                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                    // Get the maximum scroll height of the ScrollView
-                    int maxScroll = scrollView.getChildAt(0).getHeight() - scrollView.getHeight();
-
-                    // Check if the ScrollView is scrolled to the bottom
-                    if (scrollY >= maxScroll) {
-                        // If scrolled to the bottom, set CardView visibility to GONE
-                        cardView.setVisibility(View.GONE);
-                    } else {
-                        // If not scrolled to the bottom, set CardView visibility to VISIBLE
-                        cardView.setVisibility(View.VISIBLE);
-                    }
-                }
-            });
-        }*/
     }
 
     private void callAPI(String text) {
         progress(true);
         JSONObject object = new JSONObject();
-
         try {
             Log.d("MyTag",text);
             Log.d("Tag","started Call API");
@@ -183,9 +157,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 Toast.makeText(MainActivity.this, "Failed to generate image", Toast.LENGTH_SHORT).show();
-
             }
-
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
 
@@ -200,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
                     imageUrl = jsonObject.getJSONArray("data").getJSONObject(0).getString("url");
                     Log.d("Tag","Got data from API");
                     loadImage(imageUrl);
-                    Log.d("Tag","Showing pic");
+                    Toast.makeText(MainActivity.this, "yeah", Toast.LENGTH_SHORT).show();
                     progress(false);
                 } catch (Exception e) {
                     runOnUiThread(new Runnable() {
@@ -210,13 +182,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }
-
-
             }
         });
-
-
-
     }
 
     private void loadImage(String imageUrl) {
