@@ -54,34 +54,14 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-
-        //show modes
-        Button showMenuButton = findViewById(R.id.mode);
-        showMenuButton.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.mode).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // Find your CardView by its ID
-                CardView cardView = findViewById(R.id.myCardView);
-
-// Set its visibility to VISIBLE
-                cardView.setVisibility(View.VISIBLE);
-
-// Create a slide-up animation
-                TranslateAnimation slideUpAnimation = new TranslateAnimation(
-                        Animation.RELATIVE_TO_SELF, 0.0f,
-                        Animation.RELATIVE_TO_SELF, 0.0f,
-                        Animation.RELATIVE_TO_SELF, 1.0f,
-                        Animation.RELATIVE_TO_SELF, 0.0f
-                );
-
-// Set the animation duration (in milliseconds)
-                slideUpAnimation.setDuration(500); // Adjust the duration as needed
-
-// Apply the animation to the CardView
-                cardView.startAnimation(slideUpAnimation);
-
+            public void onClick(View view) {
+                BottomSheetFragment bottomSheetFragment = new BottomSheetFragment();
+                bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
             }
         });
+
         //show sizes
         Spinner spinner = findViewById(R.id.spinner);
         // Define an array of options
@@ -110,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // listen to img
+      /*  // listen to img
         ImageView imageView3 = findViewById(R.id.cardimageView3);
 
         imageView3.setOnClickListener(new View.OnClickListener() {
@@ -121,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 cardView.setVisibility(View.GONE);
                 Toast.makeText(MainActivity.this, "Blah blah", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
         binding.btnGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
