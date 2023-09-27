@@ -20,14 +20,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-
                 android:background="#4C4444"
                 >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:background="#4C4444">
+                    <!-- Card view background color -->
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -36,20 +38,12 @@
 
                         <ImageView
                             android:id="@+id/imageView3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingLeft="30px"
-                            android:paddingRight="30px"
+                            style="@style/menu_image_style"
                             app:srcCompat="@drawable/img1" />
 
                         <ImageView
                             android:id="@+id/imageView4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:paddingLeft="30px"
-                            android:paddingRight="30px"
+                            style="@style/menu_image_style"
                             app:srcCompat="@drawable/img2" />
                     </LinearLayout>
 
@@ -60,20 +54,12 @@
 
                         <ImageView
                             android:id="@+id/imageView5"
-                            android:layout_width="256dp"
-                            android:layout_height="256dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="30px"
-                            android:paddingRight="30px"
+                            style="@style/menu_image_style"
                             app:srcCompat="@drawable/img3" />
 
                         <ImageView
                             android:id="@+id/imageView6"
-                            android:layout_width="256dp"
-                            android:layout_height="256dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="30px"
-                            android:paddingRight="30px"
+                            style="@style/menu_image_style"
                             app:srcCompat="@drawable/img5" />
                     </LinearLayout>
 
@@ -84,20 +70,12 @@
 
                         <ImageView
                             android:id="@+id/imageView7"
-                            android:layout_width="256dp"
-                            android:layout_height="256dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="30px"
-                            android:paddingRight="30px"
+                            style="@style/menu_image_style"
                             app:srcCompat="@drawable/img6" />
 
                         <ImageView
                             android:id="@+id/imageView8"
-                            android:layout_width="256dp"
-                            android:layout_height="256dp"
-                            android:layout_weight="1"
-                            android:paddingLeft="30px"
-                            android:paddingRight="30px"
+                            style="@style/menu_image_style"
                             app:srcCompat="@drawable/img7" />
                     </LinearLayout>
                 </LinearLayout>
