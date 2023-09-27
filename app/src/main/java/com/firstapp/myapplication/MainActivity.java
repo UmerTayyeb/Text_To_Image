@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         getSupportActionBar().hide();
-        findViewById(R.id.btn_getpro).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_getpro).setOnClickListener(new View.OnClickListener() {   //Login activity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.mode).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.mode).setOnClickListener(new View.OnClickListener() {     //mode selector menu
             @Override
             public void onClick(View view) {
                 BottomSheetFragment bottomSheetFragment = new BottomSheetFragment();
