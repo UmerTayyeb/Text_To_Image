@@ -21,7 +21,6 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.popup_layout, container, false);
 
-
         ImageView imageView1 = view.findViewById(R.id.cardimageView1);
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,7 +29,6 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 //Toast.makeText(BottomSheetFragment.this, "Blah blah", Toast.LENGTH_SHORT).show();
                 ToastHelper.showCustomToast(getContext(), "img 1 is pressed!");
                 dismiss();
-
             }
        });
 
@@ -42,7 +40,6 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 //Toast.makeText(BottomSheetFragment.this, "Blah blah", Toast.LENGTH_SHORT).show();
                 ToastHelper.showCustomToast(getContext(), "img 2 is pressed!");
                 dismiss();
-
             }
         });
 
@@ -54,7 +51,6 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 //Toast.makeText(BottomSheetFragment.this, "Blah blah", Toast.LENGTH_SHORT).show();
                 ToastHelper.showCustomToast(getContext(), "img 3 is pressed!");
                 dismiss();
-
             }
         });
 
@@ -65,7 +61,6 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 Log.d("Tag", "img is pressed");
                 ToastHelper.showCustomToast(getContext(), "img 4 is pressed!");
                 dismiss();
-
             }
         });
 
@@ -76,7 +71,6 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                 Log.d("Tag", "img is pressed");
                 ToastHelper.showCustomToast(getContext(), "img 5 is pressed!");
                 dismiss();
-
             }
         });
 

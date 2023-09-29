@@ -30,7 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_style"
-        android:text="Login" />
+        android:text="Login"
+        app:backgroundTint="#aaf0f2"/>
 
     <!-- You can add more UI elements like a signup button, forgot password link, etc. here -->
 
