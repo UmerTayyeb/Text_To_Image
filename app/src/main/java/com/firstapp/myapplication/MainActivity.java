@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_getpro).setOnClickListener(new View.OnClickListener() {   //Login activity
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, login_activity.class);
                 startActivity(intent);
             }
         });
