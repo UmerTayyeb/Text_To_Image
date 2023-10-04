@@ -40,8 +40,12 @@ public class login_activity extends AppCompatActivity {
         ImageButton googleBtn = findViewById(R.id.imageButton);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
-        gsc = GoogleSignIn.getClient(this.gso);
+        gsc = GoogleSignIn.getClient(this, gso);
 
+        GoogleSignInAccount acct =GoogleSignIn.getLastSignedInAccount(this);
+        if(acct!=null){
+            navigateToSecondActivity();
+        }
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +57,7 @@ public class login_activity extends AppCompatActivity {
     }
 
     void signIn() {
-        Intent SignInIntent = gsc.getSignInIntent();
+        Intent signInIntent = gsc.getSignInIntent();
         startActivityForResult(signInIntent, 1000);
     }
 

@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="34sp"
         android:id="@+id/name"
-        android:textColor="black"
+        android:textColor="@color/black"
         android:layout_centerVertical="true"/>
 
     <TextView
@@ -27,8 +27,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
-        android:textColor="black"
-        android:textSize="34sp" />
-
+        android:textColor="@color/black"
+        android:layout_below="@+id/name"
+        android:textSize="24sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:id="@+id/SIgnOutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"
+        android:textColor="#D94242"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
