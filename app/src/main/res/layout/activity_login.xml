@@ -10,6 +10,7 @@
     android:gravity="center">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -28,11 +29,13 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.19"
         app:srcCompat="@drawable/google"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="450dp"
-        tools:ignore="MissingConstraints">
-    </ImageButton>
+        tools:ignore="MissingConstraints"></ImageButton>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

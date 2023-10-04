@@ -25,7 +25,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Tag", "img is pressed");
+                Log.d("Tag", "img 1 is pressed");
                 //Toast.makeText(BottomSheetFragment.this, "Blah blah", Toast.LENGTH_SHORT).show();
                 ToastHelper.showCustomToast(getContext(), "img 1 is pressed!");
                 dismiss();
@@ -36,7 +36,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Tag", "img is pressed");
+                Log.d("Tag", "img 2 is pressed");
                 //Toast.makeText(BottomSheetFragment.this, "Blah blah", Toast.LENGTH_SHORT).show();
                 ToastHelper.showCustomToast(getContext(), "img 2 is pressed!");
                 dismiss();
@@ -47,7 +47,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Tag", "img is pressed");
+                Log.d("Tag", "img 3 is pressed");
                 //Toast.makeText(BottomSheetFragment.this, "Blah blah", Toast.LENGTH_SHORT).show();
                 ToastHelper.showCustomToast(getContext(), "img 3 is pressed!");
                 dismiss();
@@ -58,7 +58,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         imageView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Tag", "img is pressed");
+                Log.d("Tag", "img 4 is pressed");
                 ToastHelper.showCustomToast(getContext(), "img 4 is pressed!");
                 dismiss();
             }
@@ -68,7 +68,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         imageView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Tag", "img is pressed");
+                Log.d("Tag", "img 5 is pressed");
                 ToastHelper.showCustomToast(getContext(), "img 5 is pressed!");
                 dismiss();
             }
@@ -78,7 +78,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         imageView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Tag", "img is pressed");
+                Log.d("Tag", "img 6 is pressed");
                 ToastHelper.showCustomToast(getContext(), "img 6 is pressed!");
                 dismiss();
             }

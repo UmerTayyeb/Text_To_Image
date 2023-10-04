@@ -2,6 +2,10 @@ package com.firstapp.myapplication;
 
 import static android.app.ProgressDialog.show;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,12 +36,16 @@ public class login_activity extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
     ImageButton imageButton;
+    private ActivityResultLauncher<Intent> signInLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_login);
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+
         ImageButton googleBtn = findViewById(R.id.imageButton);
+
+        Log.d("Tag","started loging activity!");
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
@@ -47,7 +55,23 @@ public class login_activity extends AppCompatActivity {
             navigateToSecondActivity();
         }
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        signInLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        // Handle the result of the sign-in activity here
+                        if (result.getResultCode() == RESULT_OK) {
+                            // The sign-in was successful, handle it here
+                            navigateToSecondActivity();
+                        } else {
+                            // The sign-in was canceled or failed, handle it here
+                            Toast.makeText(getApplicationContext(), "Sign-in canceled or failed", Toast.LENGTH_SHORT).show();
+                            Log.d("Error", String.valueOf(result));
+                        }
+                    }
+                });
+        googleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signIn();
@@ -58,16 +82,18 @@ public class login_activity extends AppCompatActivity {
 
     void signIn() {
         Intent signInIntent = gsc.getSignInIntent();
-        startActivityForResult(signInIntent, 1000);
+        signInLauncher.launch(signInIntent);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("Tag","started login act on act rzlt");
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1000) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
 
             try {
+                Log.d("Tag","started login act on act rzlt");
                 task.getResult(ApiException.class);
                 navigateToSecondActivity();
             } catch (ApiException e) {
@@ -77,6 +103,7 @@ public class login_activity extends AppCompatActivity {
         }
     }
     void navigateToSecondActivity(){
+        Log.d("Tag","start second act");
         Intent intent = new Intent(login_activity.this,SecondActivity.class);
         startActivity(intent);
     }

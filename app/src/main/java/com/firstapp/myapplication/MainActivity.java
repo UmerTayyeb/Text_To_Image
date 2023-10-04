@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_getpro).setOnClickListener(new View.OnClickListener() {   //Login activity
             @Override
             public void onClick(View view) {
+                Log.d("Tag","starting loging activity!");
                 Intent intent = new Intent(MainActivity.this, login_activity.class);
                 startActivity(intent);
             }
