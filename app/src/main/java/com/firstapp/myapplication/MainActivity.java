@@ -37,9 +37,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class MainActivity extends AppCompatActivity {
-
-
+public class MainActivity extends AppCompatActivity implements BottomSheetFragment.OnPromptSelectedListener {
+    private String prompt0 = "";    //string for mode selection
 
     ActivityMainBinding binding;
     //Post to server request
@@ -61,16 +60,21 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_getpro).setOnClickListener(new View.OnClickListener() {   //Login activity
             @Override
             public void onClick(View view) {
-                Log.d("Tag","starting loging activity!");
+               // Log.d("Tag","starting loging activity!");
                 Intent intent = new Intent(MainActivity.this, login_activity.class);
                 startActivity(intent);
             }
         });
 
+
+
+
         findViewById(R.id.mode).setOnClickListener(new View.OnClickListener() {     //mode selector menu
             @Override
             public void onClick(View view) {
                 BottomSheetFragment bottomSheetFragment = new BottomSheetFragment();
+                bottomSheetFragment.setPromptSelectedListener(MainActivity.this);   //listening for prompt0 in BottomSheetFragment
+               // Log.d("mode tag",prompt0);
                 bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
             }
         });
@@ -101,44 +105,40 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-      /*  // listen to img
-        ImageView imageView3 = findViewById(R.id.cardimageView3);
-
-        imageView3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("Tag", "img is pressed");
-                CardView cardView = findViewById(R.id.myCardView);
-                cardView.setVisibility(View.GONE);
-                Toast.makeText(MainActivity.this, "Blah blah", Toast.LENGTH_SHORT).show();
-            }
-        });*/
-
         binding.btnGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+             //   Log.d("prompt in btn_gen",prompt0);
 
-                String text = binding.inputText.getText().toString();
+                String text;
+                text = prompt0 + " " + binding.inputText.getText().toString();
+
                 callAPI(text);
             }
         });
     }
+
+    public void onPromptSelected(String prompt) {
+        // Receive the selected prompt from BottomSheetFragment
+        prompt0 = prompt;
+        //Log.d("onPromptSelected tag", prompt0);
+    }
+
 
     private void callAPI(String text) {
         progress(true);
         JSONObject object = new JSONObject();
         try {
             Log.d("MyTag",text);
-            Log.d("Tag","started Call API");
+            ToastHelper.showCustomToast(MainActivity.this,text);    //debugging
+            //Log.d("Tag","started Call API");
             object.put("prompt",text);
             object.put("size","256x256");
         } catch (Exception e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
-        Log.d("Tag","requesting API");
+        //Log.d("Tag","requesting API");
         RequestBody requestBody = RequestBody.create(object.toString(),JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/images/generations")
@@ -155,15 +155,15 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
 
                 try {
-                    Log.d("Tag","getting data from API\n\n");
+                    //Log.d("Tag","getting data from API\n\n");
                     //JSONObject jsonObject = new JSONObject(response.body().string());
                     String responseBody = response.body().string();
-                    Log.d("Tag", "Response\n\n");
+                    /*Log.d("Tag", "Response\n\n");
                     Log.d("Tag", responseBody); // Log the response
-                    Log.d("Tag", "Response done\n\n");
+                    Log.d("Tag", "Response done\n\n");*/
                     JSONObject jsonObject = new JSONObject(responseBody); // Parse the JSON
                     imageUrl = jsonObject.getJSONArray("data").getJSONObject(0).getString("url");
-                    Log.d("Tag","Got data from API");
+                    //Log.d("Tag","Got data from API");
                     loadImage(imageUrl);
                     Toast.makeText(MainActivity.this, "yeah", Toast.LENGTH_SHORT).show();
                     progress(false);
