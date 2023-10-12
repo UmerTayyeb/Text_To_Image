@@ -19,14 +19,13 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     public void setPromptSelectedListener(OnPromptSelectedListener listener) {
         this.promptSelectedListener = listener;
     }
-
-
-
-
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.popup_layout, container, false);
+        // Initialize your ImageView objects and set up click listeners here.
+
+        setStyle(STYLE_NORMAL, R.style.BottomSheetDialogTheme);
 
 
         ImageView imageView1 = view.findViewById(R.id.cardimageView1);
@@ -49,7 +48,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prompt0 = "Anime pic of";
+                prompt0 = "animated pic of";
                 Log.d("Tag", "img 2 is pressed");
                 //Toast.makeText(BottomSheetFragment.this, "Blah blah", Toast.LENGTH_SHORT).show();
                // ToastHelper.showCustomToast(getContext(), "img 2 is pressed!");
@@ -93,7 +92,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         imageView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prompt0 = "Dream shaper pic of";
+                prompt0 = "3D shaper pic of";
                 Log.d("Tag", "img 5 is pressed");
              //   ToastHelper.showCustomToast(getContext(), "img 5 is pressed!");
                 if (promptSelectedListener != null) {
@@ -107,7 +106,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         imageView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prompt0 = "Disney pic of";
+                prompt0 = "graffiti pic of";
                 Log.d("Tag", "img 6 is pressed");
               //  ToastHelper.showCustomToast(getContext(), "img 6 is pressed!");
                 if (promptSelectedListener != null) {
@@ -121,7 +120,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         imageView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prompt0 = "Absolute reality pic of";
+                prompt0 = "neon pic of";
                 Log.d("Tag", "img 7 is pressed");
                 //  ToastHelper.showCustomToast(getContext(), "img 6 is pressed!");
                 if (promptSelectedListener != null) {
@@ -135,7 +134,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         imageView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prompt0 = "Magic mix pic of";
+                prompt0 = "Abstract pic of";
                 Log.d("Tag", "img 8 is pressed");
                 //  ToastHelper.showCustomToast(getContext(), "img 6 is pressed!");
                 if (promptSelectedListener != null) {
