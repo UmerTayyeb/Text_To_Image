@@ -41,10 +41,11 @@
 
                         <!-- Image 1-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-
+                            android:layout_weight="0.5"
                             android:layout_marginTop="5dp"
+                            android:layout_marginRight="2dp"
                             app:cardCornerRadius="25dp">
 
                             <LinearLayout
@@ -57,15 +58,17 @@
                                     style="@style/menu_image_style"
                                     app:srcCompat="@drawable/realistic"
                                     android:scaleType="centerCrop"
+
                                     />
 
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
                         <!-- Image 2-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-
+                            android:layout_weight="0.5"
+                            android:layout_marginLeft="2dp"
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -95,9 +98,10 @@
 
                         <!-- Image 3-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-
+                            android:layout_weight="1"
+                            android:layout_marginRight="2dp"
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -117,9 +121,10 @@
                         </androidx.cardview.widget.CardView>
                         <!-- Image 4-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-
+                            android:layout_weight="1"
+                            android:layout_marginLeft="2dp"
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -149,9 +154,10 @@
 
                         <!-- Image 5-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-
+                            android:layout_weight="1"
+                            android:layout_marginRight="2dp"
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -171,9 +177,10 @@
                         </androidx.cardview.widget.CardView>
                         <!-- Image 6-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-
+                            android:layout_weight="1"
+                            android:layout_marginLeft="2dp"
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -203,9 +210,10 @@
 
                         <!-- Image 7-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-
+                            android:layout_weight="1"
+                            android:layout_marginRight="2dp"
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -225,9 +233,10 @@
                         </androidx.cardview.widget.CardView>
                         <!-- Image 8-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="match_parent"
-
+                            android:layout_weight="1"
+                            android:layout_marginLeft="2dp"
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -239,7 +248,7 @@
                                 <ImageView
                                     android:id="@+id/cardimageView8"
                                     style="@style/menu_image_style"
-                                    app:srcCompat="@drawable/abb"
+                                    app:srcCompat="@drawable/abs"
                                     android:scaleType="centerCrop"
                                     />
 
