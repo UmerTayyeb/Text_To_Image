@@ -35,18 +35,19 @@
                     <!-- trying card view for pic-->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp">
+                        android:layout_height="138dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
 
                         <!-- Image 1-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.5"
+
                             android:layout_marginTop="5dp"
-                            android:layout_marginRight="2dp"
-                            app:cardCornerRadius="25dp">
+                            app:cardCornerRadius="25dp"
+                            android:layout_weight="1">
+
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -56,21 +57,21 @@
                                 <ImageView
                                     android:id="@+id/cardimageView1"
                                     style="@style/menu_image_style"
-                                    app:srcCompat="@drawable/realistic"
+                                    android:layout_width="135dp"
+                                    android:layout_height="match_parent"
                                     android:scaleType="centerCrop"
-
-                                    />
+                                    app:srcCompat="@drawable/realistic" />
 
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
                         <!-- Image 2-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.5"
-                            android:layout_marginLeft="2dp"
+
                             android:layout_marginTop="5dp"
-                            app:cardCornerRadius="25dp">
+                            app:cardCornerRadius="25dp"
+                            android:layout_weight="1">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -80,9 +81,36 @@
                                 <ImageView
                                     android:id="@+id/cardimageView2"
                                     style="@style/menu_image_style"
-                                    app:srcCompat="@drawable/animation"
+                                    android:layout_width="135dp"
+                                    android:layout_height="154dp"
                                     android:scaleType="centerCrop"
-                                    />
+                                    app:srcCompat="@drawable/animation" />
+
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <!-- Image 2-->
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+
+                            android:layout_marginTop="5dp"
+                            app:cardCornerRadius="25dp"
+                            android:layout_weight="1">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/cardimageView100"
+                                    style="@style/menu_image_style"
+                                    android:layout_width="135dp"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/threed" />
+
 
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
@@ -98,10 +126,9 @@
 
                         <!-- Image 3-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginRight="2dp"
+
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -121,10 +148,9 @@
                         </androidx.cardview.widget.CardView>
                         <!-- Image 4-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="2dp"
+
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -154,10 +180,9 @@
 
                         <!-- Image 5-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginRight="2dp"
+
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -177,10 +202,9 @@
                         </androidx.cardview.widget.CardView>
                         <!-- Image 6-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="2dp"
+
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -210,10 +234,9 @@
 
                         <!-- Image 7-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginRight="2dp"
+
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -233,10 +256,9 @@
                         </androidx.cardview.widget.CardView>
                         <!-- Image 8-->
                         <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="2dp"
+
                             android:layout_marginTop="5dp"
                             app:cardCornerRadius="25dp">
 
@@ -248,7 +270,7 @@
                                 <ImageView
                                     android:id="@+id/cardimageView8"
                                     style="@style/menu_image_style"
-                                    app:srcCompat="@drawable/abs"
+                                    app:srcCompat="@drawable/abb"
                                     android:scaleType="centerCrop"
                                     />
 
