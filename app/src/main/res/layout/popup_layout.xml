@@ -270,7 +270,7 @@
                                 <ImageView
                                     android:id="@+id/cardimageView8"
                                     style="@style/menu_image_style"
-                                    app:srcCompat="@drawable/abb"
+                                    app:srcCompat="@drawable/abs"
                                     android:scaleType="centerCrop"
                                     />
 
